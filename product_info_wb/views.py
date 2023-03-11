@@ -3,11 +3,10 @@ from rest_framework.parsers import (
     FormParser
 )
 import pandas as pd
-from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from product_info_wb import parser_article
 
 class FileUploadView(APIView):
     """
@@ -20,24 +19,36 @@ class FileUploadView(APIView):
 
     def post(self, request, *args, **kwargs):
 
-        # _dict_file_obj = request.data['file']
-        # # xl = pd.read_excel(_dict_file_obj)
-        # return Response(_dict_file_obj.isdigit(),
-        #                     status=status.HTTP_400_BAD_REQUEST)
-
-        if request.data['file'] is None:
+        data = request.data['file']
+        if data is None:
             return Response({"error": "No File Found"},
                             status=status.HTTP_400_BAD_REQUEST)
 
         try:
             if request.data['file'].isdigit() is True:
-                return Response(request.data['file'],
-                                status=status.HTTP_200_OK)
+                return Response(parser_article.get_product(data),
+                         status=status.HTTP_200_OK
+                         )
             else:
                 return Response({"The article must have only numbers"},
-                                     status=status.HTTP_400_BAD_REQUEST
-                               )
+                                status=status.HTTP_400_BAD_REQUEST
+                                )
+        except:
+            _dict_file_obj = request.data['file'].__dict__
+            _excel = _dict_file_obj['_name'].endswith('.xlsx')
 
-        except :
-            return Response('file',
-                            status=status.HTTP_200_OK)
+            if _excel is True:
+                a = []
+                xl = pd.read_excel(data,header=None).to_dict()
+
+                for value in xl[0].values():
+
+                    a.append(parser_article.get_product(str(value)))
+                return Response(a,
+                                status=status.HTTP_400_BAD_REQUEST
+                                )
+
+            else:
+                return Response(data={"Upload File must have *.xlsx format."},
+                                status=status.HTTP_400_BAD_REQUEST
+                                )
