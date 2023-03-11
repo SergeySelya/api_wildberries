@@ -1,1 +1,6 @@
 django
+APIView
+pandas
+
+pyexcel-xls
+pyexcel-xlsx
