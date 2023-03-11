@@ -1,7 +1,5 @@
 django
 APIView
 requests
+pandas
 
-
-pyexcel-xls
-pyexcel-xlsx

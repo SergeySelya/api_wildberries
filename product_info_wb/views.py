@@ -6,7 +6,9 @@ import pandas as pd
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+# Function for parser HTTP that return json
 from product_info_wb import parser_article
+
 
 class FileUploadView(APIView):
     """
@@ -15,7 +17,7 @@ class FileUploadView(APIView):
             Endpoint: /api/product_info_wb/file_upload/
     """
 
-    parser_classes = (MultiPartParser, FormParser,)
+    # parser_classes = (MultiPartParser, FormParser,)
 
     def post(self, request, *args, **kwargs):
 
@@ -42,10 +44,9 @@ class FileUploadView(APIView):
                 xl = pd.read_excel(data,header=None).to_dict()
 
                 for value in xl[0].values():
-
                     a.append(parser_article.get_product(str(value)))
                 return Response(a,
-                                status=status.HTTP_400_BAD_REQUEST
+                                status=status.HTTP_200_OK
                                 )
 
             else:

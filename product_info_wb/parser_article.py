@@ -26,10 +26,4 @@ def get_product(article: str):
 
 
 if __name__ == "__main__":
-    urls = [
-        "https://www.wildberries.ru/catalog/140279548/detail.aspx",
-        "https://www.wildberries.ru/catalog/60135330/detail.aspx?targetUrl=SG",
-        "https://www.wildberries.ru/catalog/55118105/detail.aspx?targetUrl=SG",
-    ]
-    for url in urls:
-        print(get_product(url))
+    get_product('66807011')
