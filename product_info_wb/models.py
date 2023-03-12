@@ -7,7 +7,6 @@ class Products(models.Model):
     title = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name = ("Product")
-        verbose_name_plural = ("Products")
-        db_table = 'Products'
-
+        verbose_name = "Product"
+        verbose_name_plural = "Products"
+        db_table = "Products"

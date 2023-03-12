@@ -2,4 +2,7 @@ django
 APIView
 requests
 pandas
+psycopg2
+pip install pydantic
+pydantic-django
 
