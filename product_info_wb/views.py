@@ -6,7 +6,7 @@ import pandas as pd
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-# Function for parser HTTP that return json
+# Function for parser HTTP that return
 from product_info_wb import parser_article
 
 
@@ -28,7 +28,8 @@ class FileUploadView(APIView):
 
         try:
             if request.data['file'].isdigit() is True:
-                return Response(parser_article.get_product(data),
+                res = parser_article.main([request.data['file']])
+                return Response(res,
                          status=status.HTTP_200_OK
                          )
             else:
@@ -41,11 +42,12 @@ class FileUploadView(APIView):
 
             if _excel is True:
                 a = []
-                xl = pd.read_excel(data,header=None).to_dict()
-
-                for value in xl[0].values():
-                    a.append(parser_article.get_product(str(value)))
-                return Response(a,
+                # xl = pd.read_excel(data,header=None).to_dict()
+                # for value in xl[0].values():
+                #     a.append(parser_article.get_product(str(value)))
+                xl = pd.read_excel(data, header=None)
+                res = parser_article.main(xl[0])
+                return Response(res,
                                 status=status.HTTP_200_OK
                                 )
 
