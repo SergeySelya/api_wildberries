@@ -1,4 +1,7 @@
-# Сервис уведомлений
+Author: Селивончик С.В.
+Task1:\api_wildberries\Task1\user_connect.py
+Task2:
+# Сервис получения данных о товаре с Wildberries
 
 Приложение разработано на фреймворке django rest_framework
 
