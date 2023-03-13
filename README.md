@@ -27,7 +27,7 @@ git clone https://github.com/SergeySelya/api_wildberries.git
    pip install --default-timeout=100 -r requirements.txt
    ```
 7. Настроить подключение к БД (PostgresSQL13) в api_wildberries\config\settings.py 
-![img_1.png](img_1.png)
+![image](https://user-images.githubusercontent.com/88445455/224683654-7f106c66-d4e8-4db5-aeba-8c2477891201.png)
 8. Синхронизировать структуру базы данных с моделями: 
    ```bash
    python manage.py makemigrations
