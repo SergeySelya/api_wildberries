@@ -39,7 +39,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URL_CONFIG = "config.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +69,6 @@ DATABASES = {
         'NAME': 'serg',
         'USER': 'postgres',
         'PASSWORD': 'rassamaha7012000',
-        # 'HOST': '127.0.0.1',
         'HOST': 'localhost',
         'PORT': '5432',
     }
