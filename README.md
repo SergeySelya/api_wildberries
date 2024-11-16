@@ -1,20 +1,20 @@
-Author: Селивончик С.В.  
+Author: Selivonchik Sergey
 *   Task1:\api_wildberries\Task1\user_connect.py
 *   Task2:
-# Сервис получения данных о товаре с Wildberries
+# Service get info about product Wildberries
 
-Приложение разработано на фреймворке django rest_framework
+App create with django rest_framework
 
-Технические требования дли второй части ТЗ
+Requirements
 * Django 4.1.7, DRF 3.14.0
 * PostgreSQL 13
 * Python 3.9.5
 * aiohttp 3.8.4
 * PyDantic 1.10.6
 
-## Инструкция по настройке проекта:
+## Instruction for setting App:
 
-1. Клонировать проект
+1. Clone project
 ```bash
 git clone https://github.com/SergeySelya/api_wildberries.git
 ```
